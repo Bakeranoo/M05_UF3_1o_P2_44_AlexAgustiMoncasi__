@@ -1,0 +1,62 @@
+﻿@page
+@model M05_UF3_P2_Template.Pages.Products.ProductModel
+@using M05_UF3_P2_Template.App_Code.Model
+
+@{ 
+    if (Model.Id > 0)
+    {
+        ViewData["Title"] = "Products - " + Model.product.Summary;
+    }
+    else
+    {
+        ViewData["Title"] = "Product - Create";
+    } 
+}
+
+
+<form method="post">
+    <button type="submit" class="btn btn-primary float-right"><span class="material-icons">save</span></button>
+    <div class="card-body">
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label for="Product_Name_Input col-sm-2 col-form-label"><span class="material-icons mx-1" style="font-size: 1rem;">business</span>Name</label>
+                <input type="text" asp-for="product.Summary" maxlength="50" class="form-control" id="Product_Name_Input" placeholder="Name">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="Product_Price col-sm-2 col-form-label"><span class="material-icons mx-1" style="font-size: 1rem;">paid</span>Price</label>
+                <input type="number" asp-for="product.Price" maxlength="5" class="form-control" id="Product_Price_Input" placeholder="00.00€">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="Product_Size_Input col-sm-2 col-form-label"><span class="material-icons mx-1" style="font-size: 1rem;">priority_high</span>Size</label>
+                <input type="number" asp-for="product.Size" maxlength="5" class="form-control" id="Product_Size_Input" placeholder="00Gb">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="Developer_Id_Input col-sm-2 col-form-label"><span class="material-icons mx-1" style="font-size: 1rem;">badge</span>Developer Id</label>
+                <input type="text" asp-for="product.Developer_Id" maxlength="50" class="form-control" id="Developer_Id_Input" placeholder="0">
+            </div>
+            <div class="form-group col-md-5">
+                <label for="Editor_Id_Input col-sm-2 col-form-label"><span class="material-icons mx-1" style="font-size: 1rem;">badge</span>Editor Id</label>
+                <input type="text" asp-for="product.Editor_Id" maxlength="50" class="form-control" id="Editor_Id_Input" placeholder="0">
+            </div>
+        </div>
+    </div>
+    @if (Model.product != null)
+    {
+        @if (Model.product.Type == @Product.TYPE.GAME)
+        {
+            <a class="btn btn-primary float-right" asp-page="/Products/Game" asp-route-id="@Model.Game_Id" title="Edit Game">
+                <span class="material-icons text-white">edit</span>
+            </a> 
+        }
+        else
+        {
+            <a class="btn btn-primary float-right" asp-page="/Products/Video" asp-route-id="@Model.Video_Id" title="Edit Video">
+                <span class="material-icons text-white">edit</span>
+            </a>
+        }
+    }
+
+</form>
+
+
+

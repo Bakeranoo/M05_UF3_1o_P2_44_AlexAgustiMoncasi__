@@ -20,9 +20,7 @@ namespace M05_UF3_P2_Template.Pages
 
         public void OnGet()
         {
-            Product temp = new Product(1);
-            temp.Price = 10;
-            temp.Update();
+
         }
     }
 }

@@ -1,0 +1,16 @@
+﻿@page
+@model M05_UF3_P2_Template.Pages.Products.VideoModel
+@{
+}
+
+<form method="post">
+    <button type="submit" class="btn btn-primary float-right"><span class="material-icons">save</span></button>
+    <div class="card-body">
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label for="Video_Duration_Input col-sm-2 col-form-label"><span class="material-icons mx-1" style="font-size: 1rem;">timer</span>Video Duration</label>
+                <input type="number" asp-for="video.Duration" maxlength="50" class="form-control" id="Video_Duration_Input" placeholder="00:00:00">
+            </div>
+        </div>
+    </div>
+</form>
